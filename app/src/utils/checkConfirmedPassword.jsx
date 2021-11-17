@@ -1,0 +1,1 @@
+export const checkConfirmedPassword = (value, value2) => value === value2.password
