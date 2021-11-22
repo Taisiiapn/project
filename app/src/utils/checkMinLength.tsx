@@ -1,0 +1,1 @@
+export const checkMinLength = (value : string, num: number) => value.length > num

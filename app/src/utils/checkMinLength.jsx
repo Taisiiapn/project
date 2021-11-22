@@ -1,1 +1,0 @@
-export const checkMinLength = (value) => value.length < 3 

@@ -1,13 +1,5 @@
-import { checkMinLength } from "./checkMinLength";
-import { checkMaxLength } from "./checkMaxLength";
-import { checkPassword } from "./checkPassword";
-import { checkEmail } from "./checkEmail";
-import { checkConfirmedPassword } from "./checkConfirmedPassword";
-
-export {
-    checkMinLength,
-    checkMaxLength,
-    checkPassword,
-    checkEmail,
-    checkConfirmedPassword
-}
+export { checkMinLength } from "./checkMinLength";
+export { checkMaxLength } from "./checkMaxLength";
+export { checkPassword } from "./checkPassword";
+export { checkEmail } from "./checkEmail";
+export { checkConfirmedPassword } from "./checkConfirmedPassword";
