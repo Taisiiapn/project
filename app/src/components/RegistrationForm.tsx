@@ -18,7 +18,7 @@ const RegistrationForm:React.FC<formConfigProps> = ({ formRegisterConfig }) : Re
     const sendDataToRedux = (param: any) => {
 
         localStorage.setItem(
-            'user', JSON.stringify(param)
+            'userRegistration', JSON.stringify(param)
         );
 
         const userInfo = {
@@ -39,8 +39,6 @@ const RegistrationForm:React.FC<formConfigProps> = ({ formRegisterConfig }) : Re
             <FormBuilder 
                 formConfig={formRegisterConfig}
                 sendDataToRedux={sendDataToRedux}
-                // registerValue={registerValue}
-                // addRegister= {addRegister}
             />
 
 
