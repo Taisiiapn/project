@@ -16,11 +16,11 @@ const LoginForm:React.FC<Props> = ({ formLoginConfig }) => {
     const sendDataToRedux = (param: any) => {
 
         localStorage.setItem(
-            'user', JSON.stringify(param)
+            'userLogin', JSON.stringify(param)
         );
 
         const userInfo = {
-            name: param.name,
+            login: param.login,
             email: param.email,
             password: param.password
         }
