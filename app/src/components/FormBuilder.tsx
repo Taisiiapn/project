@@ -5,7 +5,7 @@ import { formConfigIterface} from '../formConfig'
  
 interface formBuilderProps{ 
     formConfig: formConfigIterface[];
-    func?: (value: any) => void
+    sendDataToParent?: (value: any) => void
 };
 
 interface propsValues{
@@ -20,12 +20,11 @@ interface propsErorrText{
     [name: string]: string
 }
 
-const FormBuilder:React.FC<formBuilderProps> = ({formConfig, func = () => {}}) : React.ReactElement => {
+const FormBuilder:React.FC<formBuilderProps> = ({formConfig, sendDataToParent = () => {}}) : React.ReactElement => {
 
     const [formValues, setFormValues] = useState<propsValues>({})
     const [formValuesIsError, setFormValuesError] = useState<propsErorrs>({})
     const [textError, setTextError] = useState<propsErorrText>({})
-    const [allInputsCorrect, setAllInputsCorrect] = useState<boolean>(false)
 
     useEffect(() => {
         formConfig.map(obj => {
@@ -75,22 +74,18 @@ const FormBuilder:React.FC<formBuilderProps> = ({formConfig, func = () => {}}) :
             
         });
 
-        (Object.values(copyTextError)
-            .every(item => item !== '')) 
-            ? setAllInputsCorrect(allInputsCorrect)
-            : setAllInputsCorrect(!allInputsCorrect)
-
         setTextError(copyTextError)
         setFormValuesError(copyformValuesIsError)
 
+        return(
+            Object.values(copyTextError)
+                .every(item => item === '')
+        )
     
-
     }
 
     const sendSubmittedData = () => {
-        submitRegisterForm()
-        allInputsCorrect && func(formValues)
-        
+        submitRegisterForm() &&  sendDataToParent(formValues)
     }
 
 
@@ -98,7 +93,7 @@ const FormBuilder:React.FC<formBuilderProps> = ({formConfig, func = () => {}}) :
         <>
             {formConfig && formConfig.map(obj => 
                 <FormField 
-                    value={formValues[obj.name]}
+                    value={formValues[obj.name] ? formValues[obj.name] : ''}
                     key={obj.placeholder}
                     name={obj.name}
                     type={obj.type}
