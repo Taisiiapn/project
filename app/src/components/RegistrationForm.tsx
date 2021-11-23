@@ -4,6 +4,7 @@ import FormBuilder from './FormBuilder'
 import { formConfigIterface} from '../formConfig'
 import { addUserDataToStore } from "../store/actions/addUserDataToStore";
 import { useNavigate } from 'react-router-dom'
+import { userInfoType } from '../store/types/index'
 
 interface formConfigProps{
     formRegisterConfig: formConfigIterface[]
@@ -13,20 +14,20 @@ const RegistrationForm:React.FC<formConfigProps> = ({ formRegisterConfig }) : Re
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    // const registration = useSelector(state => state.registration.registration)
 
-    const sendDataToRedux = (param: any) => {
+    const sendDataToParent = (param: any) => {
 
         localStorage.setItem(
-            'user', JSON.stringify(param)
+            'userRegistration', JSON.stringify(param)
         );
 
-        const userInfo = {
+        const userInfo:userInfoType = {
             name: param.name,
             email: param.email,
             password: param.password
         }
         dispatch(addUserDataToStore(userInfo))
+
         navigate("/");
     }
 
@@ -38,9 +39,7 @@ const RegistrationForm:React.FC<formConfigProps> = ({ formRegisterConfig }) : Re
 
             <FormBuilder 
                 formConfig={formRegisterConfig}
-                sendDataToRedux={sendDataToRedux}
-                // registerValue={registerValue}
-                // addRegister= {addRegister}
+                sendDataToParent={sendDataToParent}
             />
 
 
