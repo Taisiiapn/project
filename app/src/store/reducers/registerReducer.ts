@@ -1,12 +1,6 @@
 import { ADD_USER_DATA_TO_STOR } from "../actions/addUserDataToStore"
 import { userInfoType } from "../types"
 
-
-
-// enum UserActionTypes {
-//     ADD_USER_DATA_TO_STOR = "ADD_Register"
-// }
-
 interface defaultStateType{
     user: userInfoType
 }

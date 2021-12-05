@@ -1,17 +1,14 @@
-.App {
-  background-color: aqua;
-  padding: 10% 20%;
-  margin: 0;
+body {
+  background-color: rgb(91, 20, 100);
 }
 
 .login-form,
 .registration-form {
-  width: 40%;
+  width: 25%;
   padding: 60px 40px 30px;
   border-radius: 6%;
-  // box-shadow: 6px 6px 10px rgb(0 0 0 / 15%);
   background-color: #fff;
-  margin: auto;
+  margin: 10% auto;
 
   &__heading {
     color: #5363db;
@@ -80,5 +77,144 @@
     font-size: 14px;
     font-weight: 400;
     text-decoration: none;
+  }
+}
+
+.main {
+  // height: 100vh;
+
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    /* align-items: flex-start; */
+  }
+
+  &__list-item {
+    position: relative;
+  }
+
+  &__section {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 20%;
+    background-color: #51085f;
+    justify-content: center;
+    align-items: center;
+    font-size: 38px;
+    font-weight: bolder;
+    color: #fff;
+  }
+
+  &__section-link {
+    text-decoration: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__section-naming {
+    display: block;
+    font-size: 38px;
+    font-weight: bolder;
+    color: #fff;
+    text-align: center;;
+  }
+
+  &__heading-section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 70px;
+    background-color: #7331be;
+  }
+
+  &__heading-btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+  }
+
+  &__heading-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: auto;
+    margin-right: 15px;
+  }
+
+  &__cards-wrapper {}
+
+  &__cards-asCards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  &__cards-asList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style: none;
+  }
+
+  &__cards-img-wrapper {
+    width: 250px;
+    margin: 0;
+  }
+
+  &__cards-card {
+    width: 250px;
+    height: auto;
+    margin: auto;
+    display: block;
+  }
+
+  &__cards-list {
+    display: flex;
+    position: relative;
+    margin-top: 20px;
+  }
+
+  &__card-link {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+
+  &__cards-link-asCard {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+  }
+
+  &__cards-card-img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__cards-description-wrapper {
+    text-align: center;
+  }
+
+  &__cards-description {
+    color: #fff;
+    font-size: 24px;
+    font-style: italic;
+    text-align: center;
+    margin: 8px;
   }
 }

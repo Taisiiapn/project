@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom"
 import FormBuilder from "./FormBuilder"
@@ -36,10 +36,10 @@ const LoginForm:React.FC<Props> = ({ formLoginConfig }) => {
             navigate("/registration")
         } else {
             const parsedLocalStorage = getLocalStorage && JSON.parse(getLocalStorage);
-            parsedLocalStorage.email === userRedux.email && parsedLocalStorage.password === userRedux.password)
+            console.log("IS CORRECT USER", parsedLocalStorage.email === userRedux.email && parsedLocalStorage.password === userRedux.password)
             navigate("/products")
         }
-
+        
     }
 
 
