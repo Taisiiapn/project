@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux';
 import { actionFetchPeople } from '../store/actions/addFetchPeople'
 import { actionFetchStarShips } from "../store/actions/addFetchStarShips";
@@ -11,12 +10,12 @@ const Products:React.FC = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-
+        
         dispatch(actionFetchPeople())
 
         dispatch(actionFetchStarShips())
 
-    }, [])
+    }, [dispatch])
 
     const peopleRedux = useSelector(({people}:any) => people)
     const starShipsRedux = useSelector(({starships}:any) => starships)

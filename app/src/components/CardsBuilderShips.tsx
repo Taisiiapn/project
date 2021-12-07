@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { RandomArrayImages } from '../images/arrayRandomImages'
 
 
@@ -8,10 +6,9 @@ interface CardBuilderPropsTypes{
 }
 
 
-const CardsBuilder:React.FC<CardBuilderPropsTypes> = ( props ) => {
+const CardsBuilderShips:React.FC<CardBuilderPropsTypes> = ( props ) => {
 
     const { peopleRedux, showCards } = props
-// console.log('cards', showCards)
     return (
 
         <section className="main__cards-wrapper">
@@ -23,6 +20,7 @@ const CardsBuilder:React.FC<CardBuilderPropsTypes> = ( props ) => {
                     <li className={showCards === 'cards' 
                     ? "main__cards-card" 
                     : "main__cards-list"}>
+                        // eslint-disable-next-line
                         <a className="main__card-link" href="/#"></a>
                             <p className='main__cards-img-wrapper'>
                                 <img  className="main__cards-card-img"
@@ -51,4 +49,4 @@ const CardsBuilder:React.FC<CardBuilderPropsTypes> = ( props ) => {
     )
 }
 
-export default CardsBuilder
+export default CardsBuilderShips

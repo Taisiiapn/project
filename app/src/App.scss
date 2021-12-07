@@ -140,6 +140,7 @@ body {
     background-color: transparent;
     padding: 0;
     border: none;
+    cursor: pointer;
   }
 
   &__heading-img {
@@ -151,7 +152,9 @@ body {
     margin-right: 15px;
   }
 
-  &__cards-wrapper {}
+  &__cards-wrapper {
+    width: 100%;
+  }
 
   &__cards-asCards {
     display: flex;

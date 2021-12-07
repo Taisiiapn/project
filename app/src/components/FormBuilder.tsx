@@ -27,6 +27,7 @@ const FormBuilder:React.FC<formBuilderProps> = ({formConfig, sendDataToParent = 
     const [textError, setTextError] = useState<propsErorrText>({})
 
     useEffect(() => {
+        // eslint-disable-next-line
         formConfig.map(obj => {
             setFormValues(prevState => ({...prevState, [obj.name]: ''}))
             setFormValuesError(prevState => ({...prevState, [obj.name]: true}))
@@ -34,7 +35,7 @@ const FormBuilder:React.FC<formBuilderProps> = ({formConfig, sendDataToParent = 
         });
 
 
-    }, [])
+    }, [formConfig])
     
     const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {value, name} = e.target
@@ -46,6 +47,7 @@ const FormBuilder:React.FC<formBuilderProps> = ({formConfig, sendDataToParent = 
         const copyformValuesIsError:any = {...formValuesIsError}
         const copyTextError:propsErorrText = {...textError}
 
+        // eslint-disable-next-line
         formConfig.map(obj => {
             const validationsKeys = Object.keys(obj.validation)
             const minLength = obj.validation.minLength

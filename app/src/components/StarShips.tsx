@@ -1,24 +1,38 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { actionFetchPeople } from '../store/actions/addFetchPeople'
 import { actionFetchStarShips } from '../store/actions/addFetchStarShips'
-import CardsBuilder from './CardsBuilder'
+import CardsBuilderShips from './CardsBuilderShips'
+import Header from './Header'
 
 
 const StarShips:React.FC = () => {
 
     const dispatch = useDispatch()
+    const [showCards, setShowCards] = useState(localStorage.getItem("cardsStyle") || "cards")
 
     useEffect(() => {
 
         dispatch(actionFetchStarShips())
+        localStorage.setItem('cardsStyle', "cards")
+        
+    }, [dispatch])
 
-    }, [])
+    useEffect(() => {
+
+        localStorage.setItem('cardsStyle', showCards)
+        
+    }, [showCards])
     
     const starShipsRedux = useSelector(({starships}:any) => starships)
 
     return (
-        <CardsBuilder starShipsRedux={starShipsRedux.data} />
+        <>
+            <Header setShowCards={setShowCards} />
+
+            <CardsBuilderShips showCards={showCards}
+                starShipsRedux={starShipsRedux.data} />
+
+        </>
     )
 }
 

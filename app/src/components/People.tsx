@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { actionFetchPeople } from '../store/actions/addFetchPeople'
-import CardsBuilder from './CardsBuilder'
-import cards from '../images/cards.png'
-import list from '../images/list.png'
+import CardsBuilderPeople from './CardsBuilderPeople'
+import Header from './Header'
 
 
 const People:React.FC = () => {
@@ -16,27 +15,21 @@ const People:React.FC = () => {
         dispatch(actionFetchPeople())
         localStorage.setItem('cardsStyle', "cards")
         
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
-        console.log('TolocalStorage', showCards)
+
         localStorage.setItem('cardsStyle', showCards)
+        
     }, [showCards])
 
     const peopleRedux = useSelector(({people}:any) => people)
 
     return (
         <>
-            <header className="main__heading-section">
-                <button className="main__heading-btn" onClick={() => setShowCards('cards')}>
-                    <img className="main__heading-img" src={cards} alt="cards style" />
-                </button>
-                <button className="main__heading-btn" onClick={() => setShowCards('list')}>
-                    <img className="main__heading-img" src={list} alt="list style" />
-                </button>
-            </header>
+            <Header setShowCards={setShowCards} />
 
-            <CardsBuilder showCards={showCards}
+            <CardsBuilderPeople showCards={showCards}
                 peopleRedux={peopleRedux.data} />
         </>
     )

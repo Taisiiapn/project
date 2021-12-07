@@ -7,7 +7,6 @@ import Products from "./components/Products"
 import { formRegisterConfig, formLoginConfig } from './formConfig'
 import StarShips from './components/StarShips';
 import People from './components/People';
-import { useSelector } from 'react-redux';
 
 
 const App:React.FC = () => {
