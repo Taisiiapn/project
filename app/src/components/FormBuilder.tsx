@@ -5,6 +5,7 @@ import { formConfigIterface} from '../formConfig'
  
 interface formBuilderProps{ 
     formConfig: formConfigIterface[];
+    sendDataToRedux: (value: any) => void
     func?: (value: any) => void
 };
 
